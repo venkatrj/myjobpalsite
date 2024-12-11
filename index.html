@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chat Assistant</title>
+    <title>MyJobPal - Your AI-Powered Job Search Assistant</title>
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --background-color: #f5f6fa;
+            --primary-color: #107E7D;
+            --secondary-color: #95190C;
+            --background-color: #f8f9fa;
             --text-color: #2c3e50;
         }
 
@@ -17,7 +16,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
@@ -33,10 +32,12 @@
         }
 
         header {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: white;
             padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
         }
 
         nav {
@@ -46,8 +47,9 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
+            color: var(--primary-color);
         }
 
         .nav-links {
@@ -57,24 +59,33 @@
         }
 
         .nav-links a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
+            font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--secondary-color);
+            color: var(--primary-color);
         }
 
         .hero {
-            padding: 4rem 0;
-            text-align: center;
+            padding: 8rem 0 4rem 0;
+            background: linear-gradient(135deg, #fff 0%, #f0f4f8 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-color);
+            line-height: 1.2;
         }
 
         .hero p {
@@ -83,28 +94,14 @@
             margin-bottom: 2rem;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: var(--secondary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #2980b9;
-        }
-
         .features {
-            padding: 4rem 0;
+            padding: 6rem 0;
             background-color: white;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             padding: 2rem 0;
         }
@@ -113,8 +110,8 @@
             padding: 2rem;
             text-align: center;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
         }
 
@@ -122,20 +119,46 @@
             transform: translateY(-5px);
         }
 
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0c6665;
+            transform: translateY(-2px);
+        }
+
         footer {
             background-color: var(--primary-color);
             color: white;
-            padding: 2rem 0;
-            text-align: center;
+            padding: 3rem 0;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            .hero h1 {
-                font-size: 2rem;
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                display: none;
             }
         }
     </style>
@@ -143,48 +166,98 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">AI Chat Assistant</div>
+            <div class="logo">MyJobPal</div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#prepare">Prepare</a></li>
+                <li><a href="#download">Download</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <div class="container">
-                <h1>Welcome to AI Chat Assistant</h1>
-                <p>Your intelligent conversation partner powered by advanced AI technology</p>
-                <a href="#" class="cta-button">Start Chatting</a>
+            <div class="container hero-content">
+                <div>
+                    <h1>Your AI-Powered Job Search Assistant</h1>
+                    <p>Land your dream job with personalized resume building, interview preparation, and AI-powered tools.</p>
+                    <a href="#download" class="cta-button">Get Started Free</a>
+                </div>
+                <div>
+                    <img src="app-mockup.png" alt="MyJobPal App" style="max-width: 100%;">
+                </div>
             </div>
         </section>
 
         <section class="features" id="features">
             <div class="container">
-                <h2 style="text-align: center; margin-bottom: 2rem;">Key Features</h2>
+                <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color);">Everything You Need to Succeed</h2>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <h3>Smart Conversations</h3>
-                        <p>Engage in natural, intelligent conversations with our AI assistant</p>
+                        <div class="feature-icon">📝</div>
+                        <h3>Smart Resume Builder</h3>
+                        <p>Create tailored resumes with AI-powered suggestions</p>
                     </div>
                     <div class="feature-card">
-                        <h3>24/7 Availability</h3>
-                        <p>Get assistance whenever you need it, day or night</p>
+                        <div class="feature-icon">💼</div>
+                        <h3>Cover Letters</h3>
+                        <p>Generate compelling cover letters in minutes</p>
                     </div>
                     <div class="feature-card">
-                        <h3>Multiple Topics</h3>
-                        <p>From coding to general knowledge, we've got you covered</p>
+                        <div class="feature-icon">🎯</div>
+                        <h3>Interview Prep</h3>
+                        <p>Practice with AI-generated interview questions</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>Company Research</h3>
+                        <p>Get detailed insights about potential employers</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="tools" id="tools" style="padding: 6rem 0; background-color: var(--background-color);">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color);">Professional Tools</h2>
+                <!-- Add tools section content -->
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 AI Chat Assistant. All rights reserved.</p>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+                <div>
+                    <h3>MyJobPal</h3>
+                    <p>Your AI-powered job search assistant</p>
+                </div>
+                <div>
+                    <h4>Features</h4>
+                    <ul style="list-style: none;">
+                        <li>Resume Builder</li>
+                        <li>Cover Letters</li>
+                        <li>Interview Prep</li>
+                        <li>Company Research</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul style="list-style: none;">
+                        <li>About Us</li>
+                        <li>Contact</li>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Service</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Download</h4>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <!-- Add app store badges here -->
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
